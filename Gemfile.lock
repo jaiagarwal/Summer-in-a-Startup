@@ -67,6 +67,7 @@ GEM
       activesupport (>= 3.0.0)
       cocaine (~> 0.5.3)
       mime-types
+    pg (0.17.1)
     polyglot (0.3.3)
     rack (1.5.2)
     rack-test (0.6.2)
@@ -136,6 +137,7 @@ DEPENDENCIES
   json
   oauth
   paperclip (~> 3.0)
+  pg
   rails (= 4.0.0)
   rails-simple-search (~> 0.9.3)
   sass (~> 3.2.12)
