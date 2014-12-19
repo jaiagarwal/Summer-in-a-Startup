@@ -1,0 +1,57 @@
+<% provide(:title, "Edit user") %>
+<div class="container">
+    <div class="page-header">
+      <h4>Update your Profile</h4>
+    </div>
+
+    <%= form_for(@user) do |f| %>
+      <%= render 'shared/error_messages' %>
+
+      <%= f.label :fname,"First Name" %>
+      <%= f.text_field :fname,:class=>"form-control" %>
+ 
+      <%= f.label :lname,"Last Name" %>
+      <%= f.text_field :lname,:class=>"form-control" %>
+
+      <%= f.label :email %>
+      <%= f.text_field :email,:class=>"form-control" %>
+
+      <%= f.label :bio, "About Me" %>
+      <%= f.text_area :bio,:class=>"form-control",:placeholder=>"Write about yourself" %>
+
+      <%= f.label :bio, "Education and Experience" %>
+      <%= f.text_area :education,:class=>"form-control" %>
+
+      <%= f.label :skills, "My Skills" %>
+      <%= f.text_field :skills,:class=>"form-control",:placeholder=>"Your skills seperated by a comma" %>
+     
+      <%= f.label :bio, "Phone Number" %>
+      <%= f.text_field :phone,:class=>"form-control" %>
+
+      <!--
+      <%= f.label :pic, "Profile Picture" %>    
+      <%= f.file_field :pic %> -->
+      
+      <%= f.label :resume, "Resume" %>
+      <%= f.file_field :resume,:class=>"form-control" %>
+ 
+
+<h4>Social Media</h4>
+      
+      <!--
+      <%= f.label :google, "Your Google+ Profile link" %>
+      <%= f.text_field :google,:class=>"form-control" %>
+
+      <%= f.label :fb, "Your Facebook Profile link" %>
+      <%= f.text_field :fb,:class=>"form-control" %>
+      -->
+      <%= f.label :linkedin, "Your LinkedIn Profile link" %>
+      <%= f.text_field :linkedin,:class=>"form-control" %>
+   
+      <%= f.label :github, "Your Github/Bitbucket Profile link" %>
+      <%= f.text_field :github,:class=>"form-control",:placeholder=>"You can also add a link of your online portfolio" %>   
+      <br>
+      <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+    <% end %>
+
+</div>

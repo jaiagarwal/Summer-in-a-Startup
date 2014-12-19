@@ -1,0 +1,25 @@
+<ul class="list-group">
+     <li class="list-group-item">
+       <div class="row">
+        <div class="col-md-2">
+         <a href="#"><img src="img/zomato.png" class="profile_img" ></a>
+          
+        </div>
+        <div class="col-md-8 feed_div ">
+         <a href="#" class="feed">
+           <p class="feed_news"><%= micropost.content %></p>
+         </a>
+          
+        </div>
+        <div class="col-md-2">
+         <h6>Posted <%= time_ago_in_words(micropost.created_at) %> ago</h6>
+                  
+        </div>
+         
+       </div>
+     </li>
+    
+</ul>
+
+
+

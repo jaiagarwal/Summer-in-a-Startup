@@ -1,0 +1,65 @@
+<!-- Begin Profile -->
+<div class="pro-details">
+<div class=" ">
+  <div align="center">
+    <% if @user.pic_file_name %>
+                <%= image_tag @user.pic.url(:thumb) %><br><br>
+            <% else %>
+                 <%= image_tag("profile.jpg") %><br><br> 
+           <% end %>
+    <h2><%= @user.fname %>&nbsp<%= @user.lname %></h2>
+     <% if @user==current_user %>
+                <%= link_to 'Edit Info', edit_student_path(@user),:class=>"btn btn-lg btn-primary" %><br>
+      <% end %>
+  </div><br>
+  <div class="well">
+    <div class="row">
+      <div class="col-xs-4">
+        <h6>
+          About        
+        </h6>
+        <hr>
+        <div class="">
+        <% if @user.bio %>
+          <%= @user.bio %>
+        <% else %>
+           This is dummy content.Profile is not yet updated.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat.
+          <% end %>
+        </div>
+      </div>
+      <div class="col-xs-4">
+        <h6>
+          Education and Experience
+        </h6>
+        <hr>
+        <div class="">
+           <% if @user.education %>
+          <%= @user.education %>
+        <% else %>
+           This is dummy content.Profile is not yet updated.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat.
+          <% end %>
+        </div>
+      </div>
+      <div class="col-xs-4">
+        <h6>
+          Vitals
+        </h6>
+        <hr>
+        <div class="">
+          <p>Skills: <a href="#"><%= @user.skills %></a></p>
+          <p>Email: <a href="#"><%= @user.email %></a></p>
+          <p>Phone: <a href="#"><%= @user.phone %></a></p>
+          <p>Online Profile: <a href="<%= @user.github %>"><%= @user.github %></a></p>
+          <p>Links:&nbsp&nbsp <a href="<%= @user.fb %>"><i class="fa fa-facebook"></i></a>&nbsp&nbsp&nbsp&nbsp<a href="<%= @user.google %>"><i class="fa fa-google-plus"></i></a>&nbsp&nbsp&nbsp&nbsp<a href="<%= @user.linkedin %>"><i class="fa fa-linkedin"></i></a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

@@ -1,0 +1,85 @@
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header ">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"><%= image_tag  "logo.png",:class=>"logo" %></a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+       <% if signed_in? %>
+ <!--       <li><a href="/allstartups">Internships</a></li>
+        <li><a href="/allstudents">People</a></li> -->
+        <li><%= link_to 'Summer In a Startup',current_user %></li> 
+      </ul>
+
+   
+    
+    <ul class="nav navbar-nav navbar-right">
+<% if signed_in? %>
+      <%  @email=current_user.email %>
+       <%   @tempuser=Users.find_by(email: @email) %>
+     <% if (@tempuser.type) !="Student" %>
+        <% @startups = current_user.startups %>
+     <li><a href="#" class="dropdown-toggle" data-toggle="dropdown">My Openings</a>
+         <ul class="dropdown-menu">
+           <% @startups.each do |startup| %>
+            <li><%= link_to (startup.name), startup %></li>
+           <% end %>
+            <li class="divider"></li>
+            <li><%= link_to 'Add a New Opening',new_startup_path %></li>
+         </ul>
+        </li>
+     <% else %>
+        <li><a href="/sfollowing">My Applications</a> 
+     <% end %>
+<% end %>
+     <li><%= link_to "Home",current_user %></a></li>
+  <li class="dropdown">
+          <% if user_type=="Student" %>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.fname%><b class="caret"></b></a>
+<!--          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><% if current_user.pic_file_name %>
+                <%= image_tag current_user.pic.url(:thumb),:class=>"nav-img" %>
+            <% else %>
+                 <%= image_tag("profile.jpg",:class=>"nav-img") %>
+           <% end %><b class="caret"></b></a> -->
+           <% else %>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.fname%><b class="caret"></b></a>
+           <% end %> 
+          <ul class="dropdown-menu">
+            <% if user_type=="Student" %>
+                <li><%= link_to "Profile", "/sprofile" %></li>
+                <li><%= link_to "Update Profile", edit_student_path(current_user) %></li>
+                <li><%= link_to "Update Password", "/supdatepwd" %></li>
+                <% else %>
+                <li><%= link_to "Update Password", "/eupdatepwd" %></li>
+                <% end %>
+                <li class="divider"></li>
+                <li>
+                  <%= link_to "Sign out", logout_login_path, :method => :get  %>
+                </li>
+          </ul>
+        </li>
+     
+    </ul>
+  <!--
+    <form class="navbar-form navbar-right" role="search">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search">
+      </div>
+    </form> -->
+   <% else %>
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to "Sign in", "/login" %></li>
+          </ul>
+   <% end %>
+  </div><!-- /.navbar-collapse -->
+</div><!-- /.container-fluid -->
+</nav>

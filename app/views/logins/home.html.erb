@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Flat UI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Loading Bootstrap -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- Loading Flat UI -->
+    <link href="css/flat-ui.css" rel="stylesheet">
+
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="css/homepage.css">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+  <!--
+  <video autoplay  id="bgVideo">
+    <source src="<%= asset_path("preview.webm") %>" type="video/webm">
+    
+  </video> -->
+  <div id="navbar-full">
+    <div id="navbar">
+     <div class="container">
+        <div class="navbar-header" style="position:relative;left:-20px">
+              <a class="navbar-brand" href="#"><img src="<%= asset_path("logo_latest.png") %>" style="position:relative;width:28px;height:26px;top:-2px">&nbsp&nbspSTARTUP SPHERE</a>
+        </div>
+      </div>      
+    </div>
+  </div>
+  <div class="test">
+    <div class="info">
+       <h2>STARTUP REVOLUTION HAS ARRIVED</h2> 
+        <h4><b>COME BE A PART OF IT</b></h4>
+       <button class="btn btn-primary" data-toggle="modal" data-target="#RegisterModal">Register to get Started</button>&nbsp&nbsp&nbsp&nbsp<button class="btn btn-inverse" data-toggle="modal" data-target="#LoginModal">Member's Login</button>
+    </div>  
+  </div>  
+  <!--<div class="test2">
+    <div class="info2">
+       <h5>Register Here for free</h5><br><br>
+       <div class="row">
+           <div class="span5 well">
+              <label>Enter Name</label> 
+              <input class="form-control" type="text" placeholder="First Name">&nbsp&nbsp&nbsp<input class="form-control" type="text" placeholder="Last Name">
+              <label>Password</label> 
+              <input class="form-control" type="text" placeholder="enter username">&nbsp&nbsp&nbsp<input class="form-control" type="text" placeholder="Confirmation">
+              <label>Register as</label> 
+              <select class="form-control" >
+                  <option>student</option>
+                  <option>Entrepreneur</option>
+              </select>
+              <hr>
+              <button class="btn btn-primary">
+                  Submit
+              </button>&nbsp&nbsp&nbspOr&nbsp&nbsp&nbsp<button class="btn btn-info">Sign up via linkedin</button>
+              
+            </div>
+            <div class="span4 signup">
+                <h6>As a Student</h6>
+                <p><small>Connect with startups. Interact with mentors and get latest updates form the world of entrepreneurship.</small></p> 
+                <br>
+                <h6>As an Entrepreneur</h6>
+                <p><small>Connect with students. Take a look at their skillset and hire the best ones. Also, interact with other entrepreneurs</small></p> 
+            </div>
+           </div>
+       </div>
+    </div>  
+  </div> 
+  --> 
+  <div class="test3" align="center">
+     <h6> <font color="#34495E">Wanna know more about the experience?&nbsp&nbsp </font><a href="http://celbits.org/" class="btn btn-primary">Know about other  CEL projects</a></h6> 
+  </div>
+  <div class="test4">
+    <div class="info2">
+       <h5>What does <b>Startup Sphere </b>do?</h5>
+         <div class="row info3" align="center">
+             <div class="col-md-3">
+               <img src="<%= asset_path("Banner@2x.png") %>" class="icon">
+               <p><b>Connect</b></p><br>
+               <p><small>We join the right dots for you by getting the ideal co-founders, mentors and resources under one roof</small></p>  
+             </div>
+             <div class="col-md-3 offset1">
+               <img src="<%= asset_path("Compas@2x.png") %>" class="icon">
+               <p><b>Search</b></p><br>
+               <p><small>Startups can search for talented interns and co-founders. We curate the information on the platform for you to hand pick from</small></p>   
+             </div>
+             <div class="col-md-3 offset1">
+                <img src="<%= asset_path("Money@2x.png") %>" class="icon">
+               <p><b>Resources and Support</b></p><br>
+               <p><small>We provide startups with resources and support. Besides helping them with your basic necessities we pull the right strings to get you a perfect head start</small></p>  
+             </div>
+
+         </div>
+    
+  </div> 
+  </div> 
+  
+
+    
+      <div class="bottom-menu bottom-menu-inverse">
+        <div class="container">
+          <div class="row" align="center">
+            A CENTER FOR ENTREPRENEURIAL LEADERSHIP, BITS PILANI Initiative
+
+            </div>
+          </div>
+        </div>
+      
+    
+    <!-- /.container -->
+ <!-- Modal -->
+    <div class="modal fade" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">Login</h4>
+          </div>
+          <div class="modal-body">
+
+    
+            <%= form_for(:session, url: sessions_path) do |f| %>
+		     <div class="form-group">
+		      <%= f.label :email %>
+		      <%= f.text_field :email,:class=>"form-control",:placeholder=>"Enter email" %>
+		     </div>
+
+		    <div class="form-group">
+		      <%= f.label :password %>
+		      <%= f.password_field :password,:class=>"form-control",:placeholder=>"Enter Password" %>
+		    </div>
+
+		      <%= f.submit "Sign in", class: "btn btn-primary" %>
+		    <% end %>or
+
+            
+            
+            <%=button_to "Login with LinkedIn", login_path, :method => :post,:class=>"btn btn-info" %>
+            
+          </div>
+          
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+       
+    <!-- Modal -->
+    <div class="modal fade" id="RegisterModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">Join the Revolution Now!</h4>
+          </div>
+          <div class="modal-body">
+
+            <div class="row">
+              <div class="col-md-4 col-md-offset-1">
+                <%= link_to 'Register as a Student',"/students/new", class: "btn btn-success" %>
+
+              </div>
+              <div class="col-md-4 col-md-offset-1">
+                <%= link_to 'Register as an Entrepreneur',"/entrepreneurs/new", class: "btn btn-success" %>
+
+              </div>
+            </div>
+              
+            
+          </div>
+          
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+  </body>
+</html>

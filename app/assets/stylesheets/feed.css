@@ -1,0 +1,29 @@
+a[class="feed"]
+{
+	text-decoration: none;
+	color: #000;
+	
+
+
+}
+a[class="feed"]:hover
+{
+	
+	
+	 
+	
+}
+.feed_news
+{
+	overflow-x:hidden; 
+	overflow-y: auto; 
+	height: 100px;
+}
+.profile_img
+{
+	padding-top: 25px;
+	padding-left: 25px;
+	width: 125px;
+	height: auto;
+
+}

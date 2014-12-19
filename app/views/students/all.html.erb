@@ -1,0 +1,63 @@
+<div class="container">
+    <div class="page-header">
+      <h4>People</h4>
+<%= form_for @search, :url => "/allstudents" do |f| %>
+  <div class="row">
+    <div class="col-md-9">
+    <%= f.text_field :fname,:class=>"form-control",:placeholder=>"Search by First Name" %>
+    </div>
+   <div class="col-md-2">
+     <!-- for the additional search by filter bar ======================================-->
+    <div class="panel ">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+          Search filters
+        </a>
+      </h4>
+    </div>
+    
+    </div>
+   </div>
+    <div class="col-md-1">
+      <%= f.submit "Search",:class=>"btn btn-primary" %>
+    </div>
+   <div id="collapseOne" class="panel-collapse collapse in">
+      <div class="panel-body">
+        <div class="col-md-4">
+          <%= f.text_field :fname,:class=>"form-control",:placeholder=>"Education" %>
+      </div>    
+  <div class="col-md-4">
+          <%= f.text_field :skills,:class=>"form-control",:placeholder=>"Skills" %>
+      </div>    
+  <div class="col-md-4">
+          <%= f.text_field :email,:class=>"form-control",:placeholder=>"Email" %>
+      </div>
+        </div>
+
+      </div>
+
+  </div>
+<% end %>
+    </div>
+</div>
+    <div class="container">
+      <div class="row demo-tiles">
+ <% @students.each do |student| %>
+        <div class="col-xs-4">
+          <div class="tile">
+            <% if student.pic_file_name %>
+                <%= image_tag student.pic.url(:thumb),:class=>"tile-image big-illustration" %>
+            <% else %>
+                 <%= image_tag  "logo.png",:class=>"tile-image big-illustration" %>
+            <% end %>
+            <h3 class="tile-title"><%= student.fname+" "+student.lname %></h3>
+            <p><%= student.skills %></p>
+            <%= link_to 'Know More',student,:class=>"btn btn-primary btn-large btn-block" %>
+          </div>
+        </div>
+<% end %>
+      </div>
+    </div>
+<%= will_paginate @students %>
+  </div>

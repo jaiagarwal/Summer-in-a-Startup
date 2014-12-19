@@ -1,0 +1,74 @@
+<% provide(:title, 'Sign up') %>
+<% if lcurrent_user %>
+<div class="container">
+    <div class="page-header">
+      <h4>Sign up</h4>
+    </div>
+
+<div class="field col-md-5">
+    <%= form_for(@user) do |f| %>
+    <%= render 'shared/error_messages' %>
+    <div class="container">
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
+    </div>
+
+      <%= f.label :fname,"First Name" %>
+      <%= f.text_field :fname,:value => lcurrent_user['firstName'],:class=>"form-control" %>
+
+      <%= f.label :lname,"Last Name" %>
+      <%= f.text_field :lname,:value => lcurrent_user['lastName'],:class=>"form-control" %>
+
+      <%= f.label :email %>
+      <%= f.text_field :email,:class=>"form-control" %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password,:class=>"form-control" %>
+
+      <%= f.label :password_confirmation, "Re-enter Password" %>
+      <%= f.password_field :password_confirmation,:class=>"form-control" %>
+      <br>
+      <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>
+</div>
+<% else %>
+<div class="container">
+    <div class="page-header">
+      <h4>Sign up</h4>
+    </div>
+
+<div class="field col-md-5">
+    <%= form_for(@user) do |f|%>
+    <%= render 'shared/error_messages' %>
+    <div class="container">
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
+    </div>
+
+      <%= f.label :fname,"First Name" %>
+      <%= f.text_field :fname,:class=>"form-control" %>
+
+      <%= f.label :lname,"Last Name" %>
+      <%= f.text_field :lname,:class=>"form-control" %>
+
+      <%= f.label :email %>
+      <%= f.text_field :email,:class=>"form-control" %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password,:class=>"form-control" %>
+
+      <%= f.label :password_confirmation, "Re-enter Password" %>
+      <%= f.password_field :password_confirmation,:class=>"form-control" %>
+      <br>
+      <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
+    <% end %>
+</div>
+ <h4>or</h4> 
+  <%=button_to "Sign Up with LinkedIn", login_path, :method => :post,class: "btn btn-large btn-primary" %>
+</div>
+
+<% end %>

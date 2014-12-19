@@ -1,0 +1,87 @@
+<!-- Begin Profile -->
+        <div class="row">
+      <div class="col-md-3 col-md-offset-1 well" align="center">
+              <% if @startup.pic_file_name %>
+                <%= image_tag @startup.pic.url(:thumb) %><br><br>
+              <% else %>
+                 <%= image_tag("profile.jpg") %><br><br> 
+              <% end %>
+                <% if correct_startup_user(@startup) %>
+                <%= link_to 'Edit Info', edit_startup_path(@startup), class: "btn btn-default" %><br>
+                <% end %>
+                <a href="#"><h2><%= @startup.name %></h2></a>
+                    <br>
+                    <label>About</label>
+                    <p>
+                      <%= @startup.about %>
+                    </p>
+                   
+                    <label>Link</label>
+                    <p>
+                      <%= @startup.link %>
+                    </p>
+
+                      
+                    
+                    <label>Founder Info</label>
+                    <p><%= @startup.founderinfo %></p><br>    
+            </div>
+
+            <div class="col-md-7">
+              <% if correct_startup_user(@startup) %>
+                <div class="container">
+                  <%= form_for(@nmicropost) do |f| %>
+                            <div class="field col-md-6">
+                               <%= f.text_area :content, placeholder: "Compose new micropost...",:class=>"form-control" %>
+                            </div>
+                            <%= f.submit "Post", class: "btn btn-large btn-primary" %>
+                  <% end %><br><br>
+              
+                  <% if @startup.microposts.any? %>
+                            <h3>Microposts (<%= @startup.microposts.count %>)</h3>
+ 
+    
+                  <% end %>
+
+               </div>
+           <% end %>
+              
+<div >
+   
+    <ul class="list-group">
+     <% @microposts.each do |micropost| %>
+     <li class="list-group-item">
+       <div class="row">
+        <div class="col-md-2">
+         <% if @startup.pic_file_name %>
+                 <a href="#"><%= image_tag @startup.pic.url(:thumb) %></a>
+         <% else %>
+                 <%= image_tag("icons/profile.jpg") %><br><br> 
+        <% end %>
+          
+        </div>
+        <div class="col-md-8 feed_div ">
+         <a href="#" class="feed">
+           <p class="feed_news"><%= micropost.content %></p>
+         </a>
+          
+        </div>
+        <div class="col-md-2">
+         <h6>Posted <%= time_ago_in_words(micropost.created_at) %> ago</h6>
+         
+          
+        </div>
+         
+       </div>
+     </li>
+      
+    </ul>
+    <% end %>
+    <%= will_paginate @microposts %>
+  
+</div>
+        
+                </div>
+            </div>
+    </div>
+<!-- End Profile -->

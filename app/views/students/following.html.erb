@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="page-header">
+  <h4>Internships<small> The Ones I Applied to</small></h4>
+  </div>
+  </div>
+<div class="container">
+    <div class="row demo-tiles">
+   <% @startups.each do |startup| %>
+        <div class="col-xs-4">
+          <div class="tile">
+            <% if startup.pic_file_name %>
+                <%= image_tag startup.pic.url(:thumb),:class=>"tile-image big-illustration" %>
+            <% else %>
+                 <%= image_tag  "logo.png",:class=>"tile-image big-illustration" %>
+            <% end %>
+            <h3 class="tile-title"><%=link_to startup.name,startup %></h3>
+            <p><%= startup.tagline %></p>
+<% if user_type=="Student" %>
+            <% if current_user.follows?(startup) %>
+     <%= button_to "Unfollow",{:controller => "startups", :action => "unfollow",:id => startup.id},  :method=>:post,:class=>"btn btn-primary btn-large btn-block" %>
+  <% else %>
+   <%= button_to 'Follow', {:controller => "startups", :action => "follow",:id => startup.id},  :method=>:post,:class=>"btn btn-primary btn-large btn-block" %>
+<% end %>
+<% else %>
+<%= link_to 'Know More',startup,:class=>"btn btn-primary btn-large btn-block" %>
+<% end %>
+
+          </div>
+        </div>
+
+<% end %>
+        
+      </div> <!-- /tiles -->
+  </div>
+<%= will_paginate @startups %>
+</div>

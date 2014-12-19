@@ -1,0 +1,22 @@
+<div class="container">
+<div class="page-header">
+<h4 name="Applications">Applicants<small>View All the Student Applications</small></h4>
+  </div>                
+<table class="table">
+  <thead>
+    <tr>
+      <th>Role</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+<tbody>
+<% @startups.each do |startup| %>
+      <tr>
+        <td><%=link_to startup.name,startup %>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>
+        <td><%= link_to "View Applicants","#{startup_path(startup)}/#applicants" %></td>
+      </tr>
+    <% end %>
+ </tbody>
+</table>
+</div>
+</div>

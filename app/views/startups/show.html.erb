@@ -1,0 +1,85 @@
+<div class="pro-details">
+  <div align="center">
+    <% if @startup.pic_file_name %>
+                <%= image_tag @startup.pic.url(:thumb),:class=>"profile-img" %><br><br>
+              <% else %>
+                 <%= image_tag("logo.png",:class=>"profile-img") %><br><br> 
+              <% end %>
+    <% @entrepreneur = Entrepreneur.find_by(id: @startup.entrepreneur_id) %>
+    <h2><%= @entrepreneur.fname %></h2>
+    <h6><%= @startup.name %></h6>
+    <% if user_type=="Student" %>
+        <% if current_user.resume_file_name %>
+            <% if current_user.follows?(@startup) %>
+     <%= button_to "Cancel My Application",{:controller => "startups", :action => "unfollow",:id => @startup.id},  :method=>:post,:class=>"btn btn-lg btn-primary" %>
+  <% else %>
+   <%= button_to 'Apply', {:controller => "startups", :action => "follow",:id => @startup.id},  :method=>:post,:class=>"btn btn-lg btn-primary" %>
+<% end %>
+<% else %>
+<h6>Update your Profile and Upload Resume to Apply</h6>
+<% end %>
+<% else %>
+<% if correct_startup_user(@startup) %>
+                <%= link_to 'Edit Info', edit_startup_path(@startup),:class=>"btn btn-lg btn-primary" %><br>
+<% end %>
+<% end %>
+  </div><br>
+  <div class="well">
+    <div class="row">
+      <div class="col-xs-4">
+        <h6>
+          About the Role
+          
+        </h6>
+        <hr>
+        <div class="">
+          <%= @startup.about %>
+        </div>
+      </div>
+      <div class="col-xs-4">
+        <h6>
+          Expected Skillset
+        </h6>
+        <hr>
+        <div class="">
+          <%= @startup.founderinfo %>
+        </div>
+      </div>
+      <div class="col-xs-4">
+        <h6>
+          Vitals
+        </h6>
+        <hr>
+        <div class="">
+          <p>Location: <a href="#"><%= @startup.location %></a></p>
+          <p>Duration: <a href="#"><%= @startup.size %></a></p>
+          <p>Stipend: <a href="#"><%= @startup.funding %></a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% if correct_startup_user(@startup) %>
+<div class="container">
+<div class="page-header">
+<h4><a name="applicants">Applicants<small>View All the Student Applications</small></a></h4>
+  </div>                
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+<tbody>
+<% @students.each do |student| %>
+      <tr>
+        <td><%=link_to student.fname,student %>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>
+        <td><%= link_to "Resume", student.resume.url, target: "_blank" %></td>
+      </tr>
+    <% end %>
+ </tbody>
+</table>
+</div>
+</div>
+<% end %>

@@ -1,0 +1,136 @@
+<!-- Begin Profile -->
+<% if @user==current_user %>
+<div class="container">
+  <div class="page-header">
+  <h4>Internships<small> Look for the best ones</small></h4>
+<%= form_for @search, :url => "/allstartups" do |f| %>
+  <div class="row">
+    <div class="col-md-9">
+    <%= f.text_field :name,:class=>"form-control",:placeholder=>"Search by Role" %>
+    </div>
+   <div class="col-md-2">
+     <!-- for the additional search by filter bar ======================================-->
+    <div class="panel ">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+          Search filters
+        </a>
+      </h4>
+    </div>
+    
+    </div>
+   </div>
+    <div class="col-md-1">
+      <%= f.submit "Search",:class=>"btn btn-primary" %>
+    </div>
+   <div id="collapseOne" class="panel-collapse collapse in">
+      <div class="panel-body">
+        <div class="col-md-4">
+          <%= f.text_field :founderinfo,:class=>"form-control",:placeholder=>"Skills" %>
+      </div>    
+  <div class="col-md-4">
+          <%= f.text_field :location,:class=>"form-control",:placeholder=>"Location" %>
+      </div>    
+  <div class="col-md-4">
+          <%= f.text_field :about,:class=>"form-control",:placeholder=>"Product" %>
+      </div>
+        </div>
+
+      </div>
+
+  </div>
+<% end %>
+  </div>
+  </div>
+<div class="container">
+    <div class="row demo-tiles">
+   <% @startups.each do |startup| %>
+        <div class="col-xs-4">
+          <div class="tile">
+            <% if startup.pic_file_name %>
+                <%= image_tag startup.pic.url(:thumb),:class=>"tile-image big-illustration" %>
+            <% else %>
+                 <%= image_tag  "logo.png",:class=>"tile-image big-illustration" %>
+            <% end %>
+            <% @entrepreneur = Entrepreneur.find_by(id: startup.entrepreneur_id) %>
+            <h3 class="tile-title"><%= @entrepreneur.fname %></h3>
+            <h7><%=link_to startup.name,startup %></h7>
+            <%= link_to 'Know More',startup,:class=>"btn btn-primary btn-large btn-block" %>
+
+          </div>
+        </div>
+
+<% end %>
+        
+      </div> <!-- /tiles -->
+  </div>
+<%= will_paginate @startups %>
+</div>
+
+
+<% else %>
+<div class="pro-details">
+<div class=" ">
+  <div align="center">
+    <% if @user.pic_file_name %>
+                <%= image_tag @user.pic.url(:thumb) %><br><br>
+            <% else %>
+                 <%= image_tag("profile.jpg") %><br><br> 
+           <% end %>
+    <h2><%= @user.fname %>&nbsp<%= @user.lname %></h2>
+  </div><br>
+  <div class="well">
+    <div class="row">
+      <div class="col-xs-4">
+        <h6>
+          About        
+        </h6>
+        <hr>
+        <div class="">
+           <% if @user.bio %>
+          <%= @user.bio %>
+        <% else %>
+           This is dummy content.Profile is not yet updated.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat. 
+          <% end %>
+        </div>
+      </div>
+      <div class="col-xs-4">
+        <h6>
+          Education and Experience
+        </h6>
+        <hr>
+        <div class="">
+           <% if @user.education %>
+          <%= @user.education %>
+        <% else %>
+           This is dummy content.Profile is not yet updated.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat.
+          <% end %>
+        </div>
+      </div>
+      <div class="col-xs-4">
+        <h6>
+          Vitals
+        </h6>
+        <hr>
+        <div class="">
+          <p>Skills: <a href="#"><%= @user.skills %></a></p>
+          <p>Email: <a href="#"><%= @user.email %></a></p>
+          <p>Phone: <a href="#"><%= @user.email %></a></p>
+          <p>Online Profile: <a href="<%= @user.github %>"><%= @user.github %></a></p>
+          <p>Links:&nbsp&nbsp <a href="<%= @user.fb %>"><i class="fa fa-facebook"></i></a>&nbsp&nbsp&nbsp&nbsp<a href="<%= @user.google %>"><i class="fa fa-google-plus"></i></a>&nbsp&nbsp&nbsp&nbsp<a href="<%= @user.linkedin %>"><i class="fa fa-linkedin"></i></a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<% end %>            
+

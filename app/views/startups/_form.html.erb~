@@ -1,0 +1,84 @@
+<%= form_for(@startup) do |f| %>
+  <% if @startup.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@startup.errors.count, "error") %> prohibited this startup from being saved:</h2>
+
+      <ul>
+      <% @startup.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="row">
+  <div class="field col-md-5">
+    <%= f.label :name,"Position Name" %><br>
+    <%= f.text_field :name,:class=>"form-control" %>
+  </div>
+</div>
+<!--
+<div class="row">
+  <div class="field col-md-5">
+    <%= f.label :tagline, "Location" %><br>
+    <%= f.text_field :tagline,:class=>"form-control" %>
+  </div>
+</div> -->
+<!--
+<div class="row">
+  <div class="field col-md-5">
+    <%= f.label :link %><br>
+    <%= f.text_field :link,:class=>"form-control" %>
+  </div>
+</div> -->
+<div class="row">
+  <div class="field col-md-5">
+    <%= f.label :about,"Details about the Role" %><br>
+    <%= f.text_area :about,:class=>"form-control" %>
+  </div>
+</div>
+<div class="row">
+  <div class="field col-md-5">
+    <%= f.label :founderinfo,"Expected Skillset" %><br>
+    <%= f.text_area :founderinfo,:class=>"form-control" %>
+  </div>
+</div>
+<div class="row">
+  <div class="field col-md-5">
+    <%= f.label :funding, "Stipend" %><br>
+    <%= f.text_field :funding,:class=>"form-control" %>
+  </div>
+</div>
+<div class="row">
+  <div class="field col-md-5">
+    <%= f.label :location %><br>
+    <%= f.text_field :location,:class=>"form-control" %>
+  </div>
+</div>
+<div class="row">
+  <div class="field col-md-5">
+    <%= f.label :size, "Expected Length of Internship" %><br>
+    <%= f.text_field :size,:class=>"form-control" %>
+  </div>
+</div>
+<!--
+<div class="row">
+  <div class="field col-md-5">
+    <%= f.label :email %><br>
+    <%= f.text_field :email,:class=>"form-control" %>
+  </div>
+</div>
+<div class="row">
+  <div class="field col-md-5">
+    <%= f.label :phone %><br>
+    <%= f.text_field :phone,:class=>"form-control" %>
+  </div>
+</div>
+<p>
+     <b> Upload Startup Logo </b>
+     <%= f.file_field :pic %>
+</p>
+-->
+  <div class="actions">
+    <%= f.submit 'Update Profile',:class=>"btn btn-primary" %>
+  </div>
+<% end %>

@@ -1,0 +1,74 @@
+<div class="container">
+  <div class="page-header">
+  <h4>Startups<small> Look for the best ones</small></h4>
+<%= form_for @search, :url => "/allstartups" do |f| %>
+  <div class="row">
+    <div class="col-md-9">
+    <%= f.text_field :name,:class=>"form-control",:placeholder=>"Search by Name" %>
+    </div>
+   <div class="col-md-2">
+     <!-- for the additional search by filter bar ======================================-->
+    <div class="panel ">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+          Search filters
+        </a>
+      </h4>
+    </div>
+    
+    </div>
+   </div>
+    <div class="col-md-1">
+      <%= f.submit "Search",:class=>"btn btn-primary" %>
+    </div>
+   <div id="collapseOne" class="panel-collapse collapse in">
+      <div class="panel-body">
+        <div class="col-md-4">
+          <%= f.text_field :name,:class=>"form-control",:placeholder=>"Funding" %>
+      </div>    
+  <div class="col-md-4">
+          <%= f.text_field :name,:class=>"form-control",:placeholder=>"Location" %>
+      </div>    
+  <div class="col-md-4">
+          <%= f.text_field :about,:class=>"form-control",:placeholder=>"Product" %>
+      </div>
+        </div>
+
+      </div>
+
+  </div>
+<% end %>
+  </div>
+  </div>
+<div class="container">
+    <div class="row demo-tiles">
+   <% @startups.each do |startup| %>
+        <div class="col-xs-4">
+          <div class="tile">
+            <% if startup.pic_file_name %>
+                <%= image_tag startup.pic.url(:thumb),:class=>"tile-image big-illustration" %>
+            <% else %>
+                 <%= image_tag  "logo.png",:class=>"tile-image big-illustration" %>
+            <% end %>
+            <h3 class="tile-title"><%=link_to startup.name,startup %></h3>
+            <p><%= startup.tagline %></p>
+<% if user_type=="Student" %>
+            <% if current_user.follows?(startup) %>
+     <%= button_to "Unfollow",{:controller => "startups", :action => "unfollow",:id => startup.id},  :method=>:post,:class=>"btn btn-primary btn-large btn-block" %>
+  <% else %>
+   <%= button_to 'Follow', {:controller => "startups", :action => "follow",:id => startup.id},  :method=>:post,:class=>"btn btn-primary btn-large btn-block" %>
+<% end %>
+<% else %>
+<%= link_to 'Know More',startup,:class=>"btn btn-primary btn-large btn-block" %>
+<% end %>
+
+          </div>
+        </div>
+
+<% end %>
+        
+      </div> <!-- /tiles -->
+  </div>
+<%= will_paginate @startups %>
+</div>

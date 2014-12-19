@@ -1,0 +1,59 @@
+<div class="container">
+<%= form_for @search, :url => "/allstudents" do |f| %>
+  
+      <%= f.label :fname,"First Name" %>
+      <%= f.text_field :fname,:class=>"form-control" %>
+ 
+      <%= f.label :lname,"Last Name" %>
+      <%= f.text_field :lname,:class=>"form-control" %>
+
+      <%= f.label :email %>
+      <%= f.text_field :email,:class=>"form-control" %>
+
+      <%= f.label :skills, "Skills" %>
+      <%= f.text_field :skills,:class=>"form-control" %>
+  <br/>
+  <%= f.submit "Search" %>
+<% end %>
+
+<% @students.each do |student| %>
+    <!-- Begin Profile -->
+        <div class="row">
+
+      <div class="col-md-3">
+                <% if student.pic_file_name %>
+                <%= image_tag student.pic.url(:thumb),:class=>"img-rounded" %>
+            <% else %>
+                 <%= image_tag  "profile.jpg",:class=>"img-rounded" %> 
+            <% end %>
+            </div>
+
+            <div class="col-md-6">
+        <div class="row">
+                    <h2><%=link_to (student.fname+" "+student.lname),student %></h2>
+                    <br>
+                    <label>About</label>
+                    <p><%= student.bio %>
+                    </p>
+
+                      
+                    
+                    <label>Email</label>
+                    <p><%= student.email %></p><br>
+
+                     <label>Skills</label>
+                     <p><%= student.skills %></p><br>
+
+
+                     <label>Github/Bitbucket or Online Portfolio</label>
+                     <p><%= student.github %></p><br>
+
+                    <p><a href=""><i class="fa fa-facebook"></i></a><a href="">&nbsp&nbsp<i class="fa fa-linkedin"></i></a><a href="">&nbsp&nbsp<i class="fa fa-google-plus"></i></a></p>
+                    
+                </div>
+            </div>
+    </div>
+        <hr><!-- End Profile -->
+<% end %>
+<%= will_paginate @students %>
+</div>

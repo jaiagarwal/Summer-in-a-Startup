@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="page-header">
+      <h4>Sign in</h4>
+    </div>
+<div class="field col-md-5">
+<p>New user? <%= link_to "Sign up now!", root_path %></p>
+    <%= form_for(:session, url: sessions_path) do |f| %>
+     <div class="form-group">
+      <%= f.label :email %>
+      <%= f.text_field :email,:class=>"form-control",:placeholder=>"Enter email" %>
+    </div>
+     <div class="form-group">
+      <%= f.label :password %>
+      <%= f.password_field :password,:class=>"form-control",:placeholder=>"Enter Password" %>
+    </div>
+      <%= f.submit "Sign in", class: "btn btn-large btn-primary" %>
+    <% end %>
+
+
+<h4>or</h4>
+  <%=button_to "Signin with LinkedIn", login_path, :method => :post,:class=>"btn btn-info" %>
+</div>
+</div>

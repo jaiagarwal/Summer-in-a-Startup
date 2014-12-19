@@ -1,0 +1,64 @@
+.profile
+{
+ height: 100%;
+ margin-top: 40px;
+}
+.btn-skill
+{
+	padding-top: 2px;
+	padding-bottom: 2px;
+	padding-left: 20px;
+	padding-right: 20px;
+	background-color: #3da1d0;
+	border:none;
+	outline: none;
+
+}
+button.btn-skill span
+{
+	color: #fff;
+}
+.button-startup
+{
+	margin-top: 30px;
+}
+.btn-circle
+{
+	background-color: #fff;
+	height: 50px;
+	width: 50px;
+	border-radius: 75px;
+	outline: none;
+	
+	border:none;
+	border-width: 10px;
+	padding-top: 5px;
+}
+.btn-circle:hover
+{
+	background-color: #007bb6;
+	transition:2s;
+	
+}
+div.icon
+{
+	color: #007bb6;
+	font-size: 30px;
+	
+}
+div.icon:hover
+{
+	
+	color: #fff;
+	transition:1s;
+	opacity: 1.0;
+
+}
+.header2
+{
+	margin-top: 100px;
+}
+.mail
+{
+	background-color: #242424;
+}
