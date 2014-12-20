@@ -90,7 +90,7 @@ GEM
       activesupport (= 4.0.0)
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
-    rake (10.4.2)
+    rake (10.3.2)
     rdoc (4.2.0)
       json (~> 1.4)
     sass (3.2.19)
@@ -145,7 +145,7 @@ DEPENDENCIES
   rails (= 4.0.0)
   rails-simple-search (~> 0.9.3)
   rails_12factor
-  rake (~> 10.4.2)
+  rake (~> 10.3.2)
   sass (~> 3.2.12)
   sass-rails (~> 4.0.0)
   sdoc
