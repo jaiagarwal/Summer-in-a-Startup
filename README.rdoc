@@ -1,4 +1,4 @@
-Mashup is an initiative by Center for Entrepreneurial leadership,BITS-Pilani to improve the startup ecosystem in the campus.
+Summer in a Startup is an initiative by Center for Entrepreneurial leadership,BITS-Pilani to help on campus students get an opportunity to work at budding startups during the summer vacations.
 
 After setting up rails,these are the steps to follow
 
