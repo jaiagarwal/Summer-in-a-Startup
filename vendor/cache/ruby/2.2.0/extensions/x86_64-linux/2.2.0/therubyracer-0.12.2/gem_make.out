@@ -1,0 +1,39 @@
+/usr/local/rvm/rubies/ruby-2.2.0/bin/ruby -r ./siteconf20150415-4949-13uienn.rb extconf.rb 
+checking for main() in -lpthread... yes
+creating Makefile
+
+make "DESTDIR=" clean
+
+make "DESTDIR="
+compiling value.cc
+compiling exception.cc
+compiling gc.cc
+compiling stack.cc
+compiling object.cc
+compiling string.cc
+compiling constraints.cc
+compiling primitive.cc
+compiling constants.cc
+compiling trycatch.cc
+compiling signature.cc
+compiling invocation.cc
+compiling external.cc
+compiling template.cc
+compiling message.cc
+compiling function.cc
+compiling accessor.cc
+compiling script.cc
+compiling rr.cc
+compiling locker.cc
+compiling array.cc
+compiling handles.cc
+compiling context.cc
+compiling init.cc
+compiling date.cc
+compiling heap.cc
+compiling v8.cc
+compiling backref.cc
+linking shared-object v8/init.so
+
+make "DESTDIR=" install
+/usr/bin/install -m 0755 init.so ./.gem.20150415-4949-vo4nuq/v8

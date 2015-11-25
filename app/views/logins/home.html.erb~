@@ -30,7 +30,7 @@
     <div id="navbar">
      <div class="container">
         <div class="navbar-header" style="position:relative;left:-20px">
-              <a class="navbar-brand" href="#"><img src="<%= asset_path("logo_latest.png") %>" style="position:relative;width:28px;height:26px;top:-2px">&nbsp&nbspSTARTUP SPHERE</a>
+              <a class="navbar-brand" href="#"><img src="<%= asset_path("logo_latest.png") %>" style="position:relative;width:28px;height:26px;top:-2px">&nbsp&nbspSummer In a Startup</a>
         </div>
       </div>      
     </div>
@@ -38,7 +38,7 @@
   <div class="test">
     <div class="info">
        <h2>STARTUP REVOLUTION HAS ARRIVED</h2> 
-        <h4><b>COME BE A PART OF IT</b></h4>
+        <h4><b>Apply with us to intern at a Startup this Summer</b></h4>
        <button class="btn btn-primary" data-toggle="modal" data-target="#RegisterModal">Register to get Started</button>&nbsp&nbsp&nbsp&nbsp<button class="btn btn-inverse" data-toggle="modal" data-target="#LoginModal">Member's Login</button>
     </div>  
   </div>  
@@ -79,7 +79,7 @@
   </div>
   <div class="test4">
     <div class="info2">
-       <h5>What does <b>Startup Sphere </b>do?</h5>
+       <h5>What does <b>Summer in a Startup</b> do?</h5>
          <div class="row info3" align="center">
              <div class="col-md-3">
                <img src="<%= asset_path("Banner@2x.png") %>" class="icon">
@@ -166,7 +166,7 @@
 
               </div>
               <div class="col-md-4 col-md-offset-1">
-                <%= link_to 'Register as an Entrepreneur',"/entrepreneurs/new", class: "btn btn-success" %>
+                <%= link_to 'Register Your Startup',"/entrepreneurs/new", class: "btn btn-success" %>
 
               </div>
             </div>
