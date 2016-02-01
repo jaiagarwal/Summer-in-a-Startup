@@ -21,4 +21,8 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
+  database: sis_production
   pool: 5
+  host: localhost:
+  username: sis
+  password: jaiagarwal01

@@ -3,6 +3,7 @@
       <h4>Sign in</h4>
     </div>
 <div class="field col-md-5">
+<p>New user? <%= link_to "Sign up now!", root_path %></p>
     <%= form_for(:session, url: sessions_path) do |f| %>
      <div class="form-group">
       <%= f.label :email %>
@@ -14,8 +15,6 @@
     </div>
       <%= f.submit "Sign in", class: "btn btn-large btn-primary" %>
     <% end %>
-
-    <p>New user? <%= link_to "Sign up now!", root_path %></p>
 
 
 <h4>or</h4>
