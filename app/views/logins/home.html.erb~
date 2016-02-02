@@ -30,7 +30,7 @@
     <div id="navbar">
      <div class="container">
         <div class="navbar-header" style="position:relative;left:-20px">
-              <a class="navbar-brand" href="#"><img src="<%= asset_path("logo_latest.png") %>" style="position:relative;width:28px;height:26px;top:-2px">&nbsp&nbspSummer In a Startup</a>
+              <a class="navbar-brand" href="#"><img src="<%= asset_path("logo_latest.png") %>" style="position:relative;align:center;height:80px;top:-2px">&nbsp&nbsp</a>
         </div>
       </div>      
     </div>
@@ -107,9 +107,12 @@
       <div class="bottom-menu bottom-menu-inverse">
         <div class="container">
           <div class="row" align="center">
-            A CENTER FOR ENTREPRENEURIAL LEADERSHIP, BITS PILANI Initiative
-
+            A CENTER FOR ENTREPRENEURIAL LEADERSHIP, BITS PILANI Initiative 
             </div>
+	<div class="row" align="center">
+	Contact: <a href="mailto:devanshi@celbits.org">devanshi@celbits.org</a>
+	</div>
+
           </div>
         </div>
       
@@ -161,12 +164,8 @@
           <div class="modal-body">
 
             <div class="row">
-              <div class="col-md-4 col-md-offset-1">
+              <div class="col-md-6 col-md-offset-1">
                 <%= link_to 'Register as a Student',"/students/new", class: "btn btn-success" %>
-
-              </div>
-              <div class="col-md-4 col-md-offset-1">
-                <%= link_to 'Register Your Startup',"/entrepreneurs/new", class: "btn btn-success" %>
 
               </div>
             </div>

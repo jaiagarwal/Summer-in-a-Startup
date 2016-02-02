@@ -13,9 +13,6 @@
       <%= f.label :lname,"Last Name" %>
       <%= f.text_field :lname,:class=>"form-control" %>
 
-      <%= f.label :email %>
-      <%= f.text_field :email,:class=>"form-control" %>
-
       <%= f.label :bio, "About Me" %>
       <%= f.text_area :bio,:class=>"form-control",:placeholder=>"Write about yourself" %>
 
@@ -33,7 +30,7 @@
       <%= f.file_field :pic %> -->
       
       <%= f.label :resume, "Resume" %>
-      <%= f.file_field :resume,:class=>"form-control" %>
+      <%= f.file_field :resume,:class=>"form-control", :placeholder=>"Resume should be in pdf" %>
  
 
 <h4>Social Media</h4>

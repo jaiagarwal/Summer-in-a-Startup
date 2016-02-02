@@ -68,7 +68,6 @@
     <% end %>
 </div>
  <h4>or</h4> 
-  Sign Up with LinkedIn
   <%=button_to "Sign Up with LinkedIn", login_path, :method => :post,class: "btn btn-large btn-primary" %>
 </div>
 

@@ -1,5 +1,6 @@
 Mashup::Application.routes.draw do
   
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get "alumni/new"
   get "alumni/profile"
   get "alumni/show"
