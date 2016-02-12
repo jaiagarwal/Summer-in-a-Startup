@@ -105,6 +105,8 @@ ActiveRecord::Schema.define(version: 20141219112501) do
     t.string   "password_digest"
     t.string   "remember_token"
     t.text     "bio"
+    t.string   "google"
+    t.string   "fb"
     t.string   "github"
     t.string   "skills"
     t.string   "pic_file_name"

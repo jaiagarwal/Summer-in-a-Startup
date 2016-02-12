@@ -6,6 +6,19 @@ RailsAdmin.config do |config|
       username == 'sis' && password == 'jaiagarwal01'
     end
   end
+
+  config.model 'Follow' do
+    fields = proc do
+      field :follower_type
+      field :follower_id
+      field :followable_type
+      field :followable_id
+      field :created_at
+    end
+    list &fields
+    export &fields
+  end
+
   ## == Devise ==
   #config.authenticate_with do
   #   warden.authenticate! scope: :user
