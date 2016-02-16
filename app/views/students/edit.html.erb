@@ -13,6 +13,10 @@
       <%= f.label :lname,"Last Name" %>
       <%= f.text_field :lname,:class=>"form-control" %>
 
+      <!--
+      <%= f.label :email %>
+      <%= f.text_field :email,:class=>"form-control" %> -->
+
       <%= f.label :bio, "About Me" %>
       <%= f.text_area :bio,:class=>"form-control",:placeholder=>"Write about yourself" %>
 
@@ -30,9 +34,9 @@
       <%= f.file_field :pic %> -->
       
       <%= f.label :resume, "Resume (Must be in pdf format)" %>
-      <%= f.file_field :resume,:class=>"form-control" %>
+      <%= f.file_field :resume,:class=>"form-control" %> <div style="float: right;"><%= link_to "Sample Resume", "/assets/Sample Resume SIS.docx" %></div>
  
-
+<br>
 <h4>Social Media</h4>
       
       <!--
@@ -45,7 +49,7 @@
       <%= f.label :linkedin, "Your LinkedIn Profile link" %>
       <%= f.text_field :linkedin,:class=>"form-control" %>
    
-      <%= f.label :github, "Your Github/Bitbucket Profile link" %>
+      <%= f.label :github, "Your Github/Behance Profile link" %>
       <%= f.text_field :github,:class=>"form-control",:placeholder=>"You can also add a link of your online portfolio" %>   
       <br>
       <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>

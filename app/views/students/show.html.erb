@@ -2,15 +2,15 @@
 <% if @user==current_user %>
 <div class="container">
   <div class="page-header">
-  <h4>Internships<small> Look for the best ones</small></h4>
+   <!-- <h4>Internships<small> Look for the best ones</small></h4>
 <%= form_for @search, :url => "/allstartups" do |f| %>
   <div class="row">
     <div class="col-md-9">
     <%= f.text_field :name,:class=>"form-control",:placeholder=>"Search by Role" %>
     </div>
-   <div class="col-md-2">
+   <div class="col-md-2"> -->
      <!-- for the additional search by filter bar ======================================-->
-    <div class="panel ">
+    <!-- <div class="panel ">
     <div class="panel-heading">
       <h4 class="panel-title">
         <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
@@ -39,10 +39,11 @@
 
       </div>
 
+  </div> -->
+
   </div>
-<% end %>
   </div>
-  </div>
+  <% end %>
 <div class="container">
     <div class="row demo-tiles">
    <% @startups.each do |startup| %>
@@ -91,10 +92,7 @@
            <% if @user.bio %>
           <%= @user.bio %>
         <% else %>
-           This is dummy content.Profile is not yet updated.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat. 
+          Profile is not yet updated.
           <% end %>
         </div>
       </div>
@@ -107,10 +105,7 @@
            <% if @user.education %>
           <%= @user.education %>
         <% else %>
-           This is dummy content.Profile is not yet updated.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat.
+          Profile is not yet updated.
           <% end %>
         </div>
       </div>

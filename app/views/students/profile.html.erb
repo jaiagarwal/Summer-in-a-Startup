@@ -23,10 +23,7 @@
         <% if @user.bio %>
           <%= @user.bio %>
         <% else %>
-           This is dummy content.Profile is not yet updated.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat.
+           Profile is not yet updated.
           <% end %>
         </div>
       </div>
@@ -39,10 +36,7 @@
            <% if @user.education %>
           <%= @user.education %>
         <% else %>
-           This is dummy content.Profile is not yet updated.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat.
+          Profile is not yet updated.
           <% end %>
         </div>
       </div>
@@ -55,8 +49,8 @@
           <p>Skills: <a href="#"><%= @user.skills %></a></p>
           <p>Email: <a href="#"><%= @user.email %></a></p>
           <p>Phone: <a href="#"><%= @user.phone %></a></p>
-          <p>Online Profile: <a href="<%= @user.github %>"><%= @user.github %></a></p>
-          <p>Links:&nbsp&nbsp <a href="<%= @user.fb %>"><i class="fa fa-facebook"></i></a>&nbsp&nbsp&nbsp&nbsp<a href="<%= @user.google %>"><i class="fa fa-google-plus"></i></a>&nbsp&nbsp&nbsp&nbsp<a href="<%= @user.linkedin %>"><i class="fa fa-linkedin"></i></a></p>
+          <p>Github/Behance Profile: <a href="<%= @user.github %>"><%= @user.github %></a></p>
+          <p>Links:&nbsp&nbsp <a href="<%= @user.linkedin %>"><i class="fa fa-linkedin"></i></a></p>
         </div>
       </div>
     </div>
