@@ -44,6 +44,14 @@ class EntrepreneursController < ApplicationController
     end
   end
 
+  def destroy
+    @entrepreneur.destroy
+    respond_to do |format|
+      format.html { redirect_to entrepreneurs_url }
+      format.json { head :no_content }
+    end
+  end
+
   def update
     @user = Entrepreneur.find(params[:id])
     if @user.update_attributes(user_params)
