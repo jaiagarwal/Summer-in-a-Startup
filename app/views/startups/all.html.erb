@@ -56,9 +56,9 @@
             <h7 class="tile-title"><%=link_to startup.name,startup %></h7>
 <% if user_type=="Student" %>
             <% if current_user.follows?(startup) %>
-     <%= button_to "Unfollow",{:controller => "startups", :action => "unfollow",:id => startup.id},  :method=>:post,:class=>"btn btn-primary btn-large btn-block" %>
+     <%= link_to 'Know More (Applied)',startup,:class=>"btn btn-primary btn-large btn-block" %>
   <% else %>
-   <%= button_to 'Follow', {:controller => "startups", :action => "follow",:id => startup.id},  :method=>:post,:class=>"btn btn-primary btn-large btn-block" %>
+   <%= link_to 'Know More',startup,:class=>"btn btn-primary btn-large btn-block" %>
 <% end %>
 <% else %>
 <%= link_to 'Know More',startup,:class=>"btn btn-primary btn-large btn-block" %>
