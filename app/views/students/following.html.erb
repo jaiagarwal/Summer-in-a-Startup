@@ -13,17 +13,14 @@
             <% else %>
                  <%= image_tag  "logo.png",:class=>"tile-image big-illustration" %>
             <% end %>
-            <h3 class="tile-title"><%=link_to startup.name,startup %></h3>
-            <p><%= startup.tagline %></p>
-<% if user_type=="Student" %>
-            <% if current_user.follows?(startup) %>
-     <%= button_to "Unfollow",{:controller => "startups", :action => "unfollow",:id => startup.id},  :method=>:post,:class=>"btn btn-primary btn-large btn-block" %>
-  <% else %>
-   <%= button_to 'Follow', {:controller => "startups", :action => "follow",:id => startup.id},  :method=>:post,:class=>"btn btn-primary btn-large btn-block" %>
-<% end %>
-<% else %>
-<%= link_to 'Know More',startup,:class=>"btn btn-primary btn-large btn-block" %>
-<% end %>
+            <% @entrepreneur = Entrepreneur.find_by(id: startup.entrepreneur_id) %>
+            <h3 class="tile-title"><%= @entrepreneur.fname %></h3>
+            <h7 class="tile-title"><%=link_to startup.name,startup %></h7>
+            <% if user_type=="Student" %>
+                 <%= button_to "Cancel Application",{:controller => "startups", :action => "unfollow",:id => startup.id},  :method=>:post,:class=>"btn btn-primary btn-large btn-block" %>
+            <% else %>
+            <%= link_to 'Know More',startup,:class=>"btn btn-primary btn-large btn-block" %>
+            <% end %>
 
           </div>
         </div>

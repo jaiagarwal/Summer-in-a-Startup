@@ -19,7 +19,7 @@ class StudentsController < ApplicationController
   def following
      store_location
      @user = current_user
-     @startups=@user.followees(Startup).paginate
+     @startups=@user.followees(Startup).paginate(:page => params[:page], :per_page => 9)
   end
 
   def all
