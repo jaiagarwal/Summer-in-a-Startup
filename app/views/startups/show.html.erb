@@ -7,7 +7,7 @@
               <% end %>
     <% @entrepreneur = Entrepreneur.find_by(id: @startup.entrepreneur_id) %>
     <h2><%= @entrepreneur.fname %></h2>
-    <h6><%= @startup.name %></h6>
+    <h4><%= @startup.name %></h4>
     <% if user_type=="Student" %>
         <% if current_user.resume_file_name %>
             <% if current_user.follows?(@startup) %>
@@ -16,7 +16,7 @@
    <%= button_to 'Apply', {:controller => "startups", :action => "follow",:id => @startup.id},  :method=>:post,:class=>"btn btn-lg btn-primary" %>
 <% end %>
 <% else %>
-<h6>(Update your Profile and Upload Resume to Apply)</h6>
+<h6>(Upload Resume to Apply)</h6>
 <% end %>
 <% else %>
 <% if correct_startup_user(@startup) %>
