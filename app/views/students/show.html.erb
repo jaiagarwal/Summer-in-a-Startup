@@ -26,24 +26,24 @@
     </div>
    <div id="collapseOne" class="panel-collapse collapse in">
       <div class="panel-body">
-        <div class="col-md-4">
+        <div class="col-md-6">
           <%= f.text_field :founderinfo,:class=>"form-control",:placeholder=>"Skills" %>
       </div>    
-  <div class="col-md-4">
+  <div class="col-md-6">
           <%= f.text_field :location,:class=>"form-control",:placeholder=>"Location" %>
       </div>    
-  <div class="col-md-4">
+  <!-- <div class="col-md-4">
           <%= f.text_field :about,:class=>"form-control",:placeholder=>"Product" %>
-      </div>
+      </div> -->
         </div>
 
       </div>
 
   </div>
-
-  </div>
-  </div>
   <% end %>
+  </div>
+  </div>
+  
 <div class="container">
     <div class="row demo-tiles">
    <% @startups.each do |startup| %>
