@@ -35,7 +35,7 @@ class StudentsController < ApplicationController
     store_location
     @search = Search.new(:startup, params[:search])
     @search.order = 'name'
-    @startups = (@search.run).paginate(:page => params[:page], :per_page => 8)
+    @startups = (@search.run).paginate(:page => params[:page], :per_page => 9)
   end
 
   def edit
